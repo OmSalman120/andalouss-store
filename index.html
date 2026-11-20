@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ملابس الأندلس mini prix | أناقة عصرية بأثمنة مناسبة</title>
+  <title>ملابس الأندلس mini prix | تشكيلة عصرية بأثمنة مناسبة</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -149,7 +149,7 @@
     /* Hero */
     .hero {
       margin: 18px 0;
-      background: linear-gradient(135deg, #0f4c5c 0%, #1b6b7d 60%, #243b4a 100%);
+      background: linear-gradient(135deg, #0f4c5c 0%, #1b6b7e 60%, #243b4a 100%);
       color: #fff;
       border-radius: 22px;
       padding: 26px 22px;
@@ -272,7 +272,7 @@
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
-      gap: 18px;
+      gap: 16px;
       margin-bottom: 36px;
     }
 
@@ -346,14 +346,13 @@
 
     .select-box {
       width: 100%;
-      padding: 7px 9px;
+      padding: 7px 8px;
       border-radius: 10px;
       border: 1px solid var(--border);
       background: var(--surface-soft);
       font-size: 0.82rem;
       font-weight: 700;
       color: var(--text);
-      outline: none;
     }
 
     .price-row {
@@ -365,18 +364,34 @@
     }
 
     .price {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       font-weight: 800;
       color: var(--primary);
     }
 
-    .card-actions {
+    .actions-row {
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 8px;
     }
 
-    .btn-wa {
+    .add-btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 11px;
+      padding: 9px 12px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .add-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    .wa-quick-btn {
       background: var(--whatsapp);
       color: #fff;
       border: none;
@@ -385,33 +400,11 @@
       font-size: 0.86rem;
       font-weight: 700;
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      transition: background 0.18s ease;
+      transition: background 0.2s ease;
     }
 
-    .btn-wa:hover {
+    .wa-quick-btn:hover {
       background: var(--whatsapp-dark);
-    }
-
-    .btn-add {
-      background: var(--surface-soft);
-      color: var(--text);
-      border: 1px solid var(--border);
-      border-radius: 11px;
-      padding: 9px 12px;
-      font-size: 0.86rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.18s ease;
-    }
-
-    .btn-add:hover {
-      background: var(--primary);
-      color: #fff;
-      border-color: var(--primary);
     }
 
     .empty-state {
@@ -504,4 +497,534 @@
       font-size: 0.85rem;
     }
 
-    .cart-
+    .cart-item-title {
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+
+    .cart-item-meta {
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .cart-item-price {
+      font-weight: 800;
+      color: var(--primary);
+      margin-top: 4px;
+    }
+
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .qty-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      background: #fff;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .remove-btn {
+      border: none;
+      background: transparent;
+      color: #dc2626;
+      font-weight: 700;
+      font-size: 0.78rem;
+      cursor: pointer;
+      margin-top: 4px;
+    }
+
+    .drawer-foot {
+      padding: 16px;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .customer-note {
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+      font-size: 0.85rem;
+    }
+
+    .total-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .checkout-wa-btn {
+      width: 100%;
+      background: var(--whatsapp);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 12px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .checkout-wa-btn:hover {
+      background: var(--whatsapp-dark);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: #14181f;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      z-index: 80;
+      opacity: 0;
+      transition: all 0.25s ease;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 16px 34px;
+      color: var(--muted);
+      font-size: 0.84rem;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <a href="#" class="brand">
+        <div class="brand-badge">أ</div>
+        <div>
+          <div class="brand-title">ملابس الأندلس mini prix</div>
+          <div class="brand-sub">أثمنة مناسبة • طلب مباشر عبر واتساب</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <button class="cart-btn" id="openCartBtn" type="button">
+          <span>السلة</span>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="hero-tag">تشكيلة مختارة • Mini Prix</span>
+      <h1>ملابس الأندلس mini prix</h1>
+      <p>اختر القطعة والمقاس واللون المناسب لك، وأرسل طلبك مباشرة عبر واتساب بكل سهولة.</p>
+      <div class="hero-meta">
+        <span class="hero-pill">10 موديلات جاهزة</span>
+        <span class="hero-pill">دفع عند الاستلام</span>
+        <span class="hero-pill">تأكيد سريع عبر واتساب</span>
+      </div>
+    </section>
+
+    <section class="controls">
+      <div class="search-row">
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="ابحث عن هودي، جاكيت، قميص، طقم رياضي، فيست..."
+        />
+      </div>
+      <div class="categories" id="categoryButtons">
+        <button class="cat-btn active" data-category="الكل" type="button">الكل</button>
+        <button class="cat-btn" data-category="هوديز" type="button">هوديز</button>
+        <button class="cat-btn" data-category="جاكيت ومعاطف" type="button">جاكيت ومعاطف</button>
+        <button class="cat-btn" data-category="فيست" type="button">فيست</button>
+        <button class="cat-btn" data-category="أطقم وقمصان" type="button">أطقم وقمصان</button>
+      </div>
+    </section>
+
+    <div class="results-bar">
+      <span id="resultsCount">عرض 10 منتجات</span>
+      <span>الأسعار بالدرهم (DH)</span>
+    </div>
+
+    <section class="grid" id="productsGrid"></section>
+  </main>
+
+  <div class="drawer-backdrop" id="cartDrawer">
+    <aside class="drawer" role="dialog" aria-label="سلة المشتريات">
+      <div class="drawer-head">
+        <h2>سلة الطلبات</h2>
+        <button class="close-btn" id="closeCartBtn" type="button" aria-label="إغلاق">✕</button>
+      </div>
+      <div class="drawer-body" id="cartItemsContainer"></div>
+      <div class="drawer-foot">
+        <input
+          type="text"
+          id="customerCity"
+          class="customer-note"
+          placeholder="المدينة أو ملاحظة إضافية (اختياري)"
+        />
+        <div class="total-line">
+          <span>المجموع:</span>
+          <span id="cartTotal">0 DH</span>
+        </div>
+        <button class="checkout-wa-btn" id="checkoutWhatsAppBtn" type="button">
+          إرسال الطلب عبر واتساب
+        </button>
+      </div>
+    </aside>
+  </div>
+
+  <div class="toast" id="toastBox">تمت الإضافة إلى السلة</div>
+
+  <footer>
+    <div class="container">
+      ملابس الأندلس mini prix — جميع الحقوق محفوظة
+    </div>
+  </footer>
+
+  <script>
+    const WHATSAPP_NUMBER = "212771865652";
+
+    const PRODUCTS = [
+      {
+        id: 1,
+        name: "معطف فرو أبيض وأسود",
+        category: "جاكيت ومعاطف",
+        price: 199,
+        image: "fur-coat-bw.jpg",
+        desc: "تصميم أنيق ودافئ مناسب للإطلالات اليومية.",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["أبيض × أسود"]
+      },
+      {
+        id: 2,
+        name: "هودي كرويف أسود",
+        category: "هوديز",
+        price: 149,
+        image: "hoodie-cruyff-black.jpg",
+        desc: "هودي مريح بقصة عصرية وخامة ناعمة.",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["أسود"]
+      },
+      {
+        id: 3,
+        name: "هودي كرويف كحلي",
+        category: "هوديز",
+        price: 149,
+        image: "hoodie-cruyff-navy.jpg",
+        desc: "لون كحلي عملي يسهل تنسيقه مع مختلف الملابس.",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["كحلي"]
+      },
+      {
+        id: 4,
+        name: "هودي كرويف نيون",
+        category: "هوديز",
+        price: 149,
+        image: "hoodie-cruyff-neon.jpg",
+        desc: "إطلالة شبابية لافتة بلون نيون عصري.",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["نيون"]
+      },
+      {
+        id: 5,
+        name: "جاكيت ديفاس أسود",
+        category: "جاكيت ومعاطف",
+        price: 179,
+        image: "jacket-divas-black.jpg",
+        desc: "جاكيت عملي بمظهر أنيق ومناسب لفصل البرودة.",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["أسود"]
+      },
+      {
+        id: 6,
+        name: "قميص كارو بيج",
+        category: "أطقم وقمصان",
+        price: 119,
+        image: "shirt-plaid-beige.jpg",
+        desc: "قميص بنقشة مربعات خفيفة ومريحة للارتداء اليومي.",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["بيج"]
+      },
+      {
+        id: 7,
+        name: "طقم نايكي رياضي",
+        category: "أطقم وقمصان",
+        price: 189,
+        image: "sport-nike-set.jpg",
+        desc: "طقم عملي مريح للحركة اليومية والنشاط الرياضي.",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["أساسي"]
+      },
+      {
+        id: 8,
+        name: "توب نايكي وردي",
+        category: "أطقم وقمصان",
+        price: 99,
+        image: "top-nike-pink.jpg",
+        desc: "قطعة خفيفة ومريحة بلون وردي جذاب.",
+        sizes: ["XS", "S", "M", "L"],
+        colors: ["وردي"]
+      },
+      {
+        id: 9,
+        name: "فيست فرو بني",
+        category: "فيست",
+        price: 139,
+        image: "vest-fur-brown.jpg",
+        desc: "فيست فرو دافئ يضيف لمسة مميزة فوق القمصان والكنزات.",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["بني"]
+      },
+      {
+        id: 10,
+        name: "فيست بافر زيتوني",
+        category: "فيست",
+        price: 139,
+        image: "vest-olive-puffer.jpg",
+        desc: "فيست مبطن خفيف وعصري بلون زيتوني أنيق.",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["زيتوني"]
+      }
+    ];
+
+    let selectedCategory = "الكل";
+    let searchQuery = "";
+    let cart = [];
+
+    const productsGrid = document.getElementById("productsGrid");
+    const resultsCount = document.getElementById("resultsCount");
+    const searchInput = document.getElementById("searchInput");
+    const categoryButtons = document.querySelectorAll(".cat-btn");
+    const cartDrawer = document.getElementById("cartDrawer");
+    const openCartBtn = document.getElementById("openCartBtn");
+    const closeCartBtn = document.getElementById("closeCartBtn");
+    const cartCount = document.getElementById("cartCount");
+    const cartItemsContainer = document.getElementById("cartItemsContainer");
+    const cartTotal = document.getElementById("cartTotal");
+    const checkoutWhatsAppBtn = document.getElementById("checkoutWhatsAppBtn");
+    const customerCity = document.getElementById("customerCity");
+    const toastBox = document.getElementById("toastBox");
+
+    function showToast(msg) {
+      toastBox.textContent = msg;
+      toastBox.classList.add("show");
+      setTimeout(() => toastBox.classList.remove("show"), 1900);
+    }
+
+    function renderProducts() {
+      const filtered = PRODUCTS.filter((p) => {
+        const matchesCat = selectedCategory === "الكل" || p.category === selectedCategory;
+        const q = searchQuery.trim().toLowerCase();
+        const matchesSearch =
+          !q ||
+          p.name.toLowerCase().includes(q) ||
+          p.category.toLowerCase().includes(q) ||
+          p.desc.toLowerCase().includes(q);
+        return matchesCat && matchesSearch;
+      });
+
+      resultsCount.textContent = `عرض ${filtered.length} من أصل ${PRODUCTS.length} منتجات`;
+
+      if (filtered.length === 0) {
+        productsGrid.innerHTML = `<div class="empty-state">لا توجد منتجات مطابقة للبحث الحالي.</div>`;
+        return;
+      }
+
+      productsGrid.innerHTML = filtered
+        .map(
+          (p) => `
+          <article class="card" data-id="${p.id}">
+            <div class="img-wrap">
+              <img src="${p.image}" alt="${p.name}" loading="lazy" />
+              <span class="cat-badge">${p.category}</span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">${p.name}</h3>
+              <p class="card-desc">${p.desc}</p>
+              <div class="options-row">
+                <select class="select-box size-select" aria-label="المقاس">
+                  ${p.sizes.map((s) => `<option value="${s}">مقاس: ${s}</option>`).join("")}
+                </select>
+                <select class="select-box color-select" aria-label="اللون">
+                  ${p.colors.map((c) => `<option value="${c}">لون: ${c}</option>`).join("")}
+                </select>
+              </div>
+              <div class="price-row">
+                <span class="price">${p.price} DH</span>
+              </div>
+              <div class="actions-row">
+                <button class="add-btn" type="button" onclick="addToCart(${p.id}, this)">إضافة للسلة</button>
+                <button class="wa-quick-btn" type="button" onclick="orderSingleWhatsApp(${p.id}, this)">واتساب</button>
+              </div>
+            </div>
+          </article>
+        `
+        )
+        .join("");
+    }
+
+    function getSelectedOptions(btnEl) {
+      const card = btnEl.closest(".card");
+      const sizeVal = card.querySelector(".size-select").value.replace("مقاس: ", "");
+      const colorVal = card.querySelector(".color-select").value.replace("لون: ", "");
+      return { sizeVal, colorVal };
+    }
+
+    function addToCart(productId, btnEl) {
+      const product = PRODUCTS.find((item) => item.id === productId);
+      if (!product) return;
+      const { sizeVal, colorVal } = getSelectedOptions(btnEl);
+
+      const existing = cart.find(
+        (item) => item.id === product.id && item.size === sizeVal && item.color === colorVal
+      );
+
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          image: product.image,
+          size: sizeVal,
+          color: colorVal,
+          qty: 1
+        });
+      }
+
+      updateCartUI();
+      showToast("تمت إضافة المنتج إلى السلة");
+    }
+
+    function orderSingleWhatsApp(productId, btnEl) {
+      const product = PRODUCTS.find((item) => item.id === productId);
+      if (!product) return;
+      const { sizeVal, colorVal } = getSelectedOptions(btnEl);
+      const cityText = customerCity.value.trim();
+
+      let message = `مرحباً *ملابس الأندلس mini prix*، أود طلب المنتج التالي:\n`;
+      message += `• المنتج: ${product.name}\n`;
+      message += `• المقاس: ${sizeVal}\n`;
+      message += `• اللون: ${colorVal}\n`;
+      message += `• الثمن: ${product.price} DH\n`;
+      if (cityText) message += `• المدينة / ملاحظة: ${cityText}\n`;
+
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank", "noopener");
+    }
+
+    function changeQty(index, delta) {
+      if (!cart[index]) return;
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      updateCartUI();
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+      const totalPrice = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+
+      cartCount.textContent = totalItems;
+      cartTotal.textContent = `${totalPrice} DH`;
+
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = `<p style="text-align:center;color:var(--muted);padding:24px 0;">السلة فارغة حالياً.</p>`;
+        return;
+      }
+
+      cartItemsContainer.innerHTML = cart
+        .map(
+          (item, idx) => `
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}" />
+            <div class="cart-item-info">
+              <div class="cart-item-title">${item.name}</div>
+              <div class="cart-item-meta">المقاس: ${item.size} | اللون: ${item.color}</div>
+              <div class="cart-item-price">${item.price * item.qty} DH</div>
+              <button class="remove-btn" type="button" onclick="removeItem(${idx})">حذف</button>
+            </div>
+            <div class="qty-controls">
+              <button class="qty-btn" type="button" onclick="changeQty(${idx}, -1)">-</button>
+              <span style="font-weight:800;min-width:18px;text-align:center;">${item.qty}</span>
+              <button class="qty-btn" type="button" onclick="changeQty(${idx}, 1)">+</button>
+            </div>
+          </div>
+        `
+        )
+        .join("");
+    }
+
+    checkoutWhatsAppBtn.addEventListener("click", () => {
+      if (cart.length === 0) {
+        showToast("أضف منتجاً واحداً على الأقل أولاً");
+        return;
+      }
+
+      const cityText = customerCity.value.trim();
+      const totalPrice = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+
+      let message = `مرحباً *ملابس الأندلس mini prix*، أود إتمام الطلب التالي:\n\n`;
+      cart.forEach((item, i) => {
+        message += `${i + 1}. ${item.name} (${item.size} / ${item.color}) × ${item.qty} = ${item.price * item.qty} DH\n`;
+      });
+      message += `\n*المجموع الإجمالي: ${totalPrice} DH*\n`;
+      if (cityText) message += `المدينة / ملاحظة: ${cityText}\n`;
+
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank", "noopener");
+    });
+
+    searchInput.addEventListener("input", (e) => {
+      searchQuery = e.target.value;
+      renderProducts();
+    });
+
+    categoryButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        categoryButtons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        selectedCategory = btn.dataset.category;
+        renderProducts();
+      });
+    });
+
+    openCartBtn.addEventListener("click", () => cartDrawer.classList.add("open"));
+    closeCartBtn.addEventListener("click", () => cartDrawer.classList.remove("open"));
+    cartDrawer.addEventListener("click", (e) => {
+      if (e.target === cartDrawer) cartDrawer.classList.remove("open");
+    });
+
+    renderProducts();
+    updateCartUI();
+  </script>
+</body>
+</html>
