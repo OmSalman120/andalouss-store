@@ -177,7 +177,7 @@
     .hero p {
       color: rgba(255, 255, 255, 0.9);
       font-size: 0.95rem;
-      max-width: 680px;
+      max-width: 720px;
       margin-bottom: 16px;
     }
 
@@ -262,6 +262,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
       font-size: 0.88rem;
       color: var(--muted);
       font-weight: 700;
@@ -363,10 +365,14 @@
       padding-top: 6px;
     }
 
-    .price {
-      font-size: 1.1rem;
+    .price-badge {
+      display: inline-block;
+      font-size: 0.84rem;
       font-weight: 800;
       color: var(--primary);
+      background: #e6f2f5;
+      padding: 4px 10px;
+      border-radius: 999px;
     }
 
     .actions-row {
@@ -511,6 +517,7 @@
       font-weight: 800;
       color: var(--primary);
       margin-top: 4px;
+      font-size: 0.8rem;
     }
 
     .qty-controls {
@@ -561,7 +568,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 1rem;
+      gap: 8px;
+      font-size: 0.92rem;
       font-weight: 800;
     }
 
@@ -619,7 +627,7 @@
         <div class="brand-badge">أ</div>
         <div>
           <div class="brand-title">ملابس الأندلس mini prix</div>
-          <div class="brand-sub">أثمنة مناسبة • طلب مباشر عبر واتساب</div>
+          <div class="brand-sub">أثمنة مناسبة • الثمن بعد المعاينة عبر واتساب</div>
         </div>
       </a>
       <div class="header-actions">
@@ -635,11 +643,11 @@
     <section class="hero">
       <span class="hero-tag">تشكيلة مختارة • Mini Prix</span>
       <h1>ملابس الأندلس mini prix</h1>
-      <p>اختر القطعة والمقاس واللون المناسب لك، وأرسل طلبك مباشرة عبر واتساب بكل سهولة.</p>
+      <p>تصفح القطع المتوفرة، اختر المقاس واللون المناسب، وتواصل معنا على واتساب لتأكيد الطلب وتحديد الثمن بعد المعاينة.</p>
       <div class="hero-meta">
-        <span class="hero-pill">10 موديلات جاهزة</span>
-        <span class="hero-pill">دفع عند الاستلام</span>
-        <span class="hero-pill">تأكيد سريع عبر واتساب</span>
+        <span class="hero-pill">16 موديلاً متوفراً</span>
+        <span class="hero-pill">الثمن بعد المعاينة والاتصال</span>
+        <span class="hero-pill">تواصل مباشر عبر واتساب</span>
       </div>
     </section>
 
@@ -649,7 +657,7 @@
           type="text"
           id="searchInput"
           class="search-input"
-          placeholder="ابحث عن هودي، جاكيت، قميص، طقم رياضي، فيست..."
+          placeholder="ابحث عن هودي، جاكيت، معطف، فستان، طقم رياضي، فيست..."
         />
       </div>
       <div class="categories" id="categoryButtons">
@@ -657,13 +665,13 @@
         <button class="cat-btn" data-category="هوديز" type="button">هوديز</button>
         <button class="cat-btn" data-category="جاكيت ومعاطف" type="button">جاكيت ومعاطف</button>
         <button class="cat-btn" data-category="فيست" type="button">فيست</button>
-        <button class="cat-btn" data-category="أطقم وقمصان" type="button">أطقم وقمصان</button>
+        <button class="cat-btn" data-category="أطقم وفساتين وقمصان" type="button">أطقم وفساتين وقمصان</button>
       </div>
     </section>
 
     <div class="results-bar">
-      <span id="resultsCount">عرض 10 منتجات</span>
-      <span>الأسعار بالدرهم (DH)</span>
+      <span id="resultsCount">عرض 16 منتجاً</span>
+      <span>الثمن يحدد بعد الاتصال أو المحادثة في واتساب</span>
     </div>
 
     <section class="grid" id="productsGrid"></section>
@@ -681,11 +689,11 @@
           type="text"
           id="customerCity"
           class="customer-note"
-          placeholder="المدينة أو ملاحظة إضافية (اختياري)"
+          placeholder="المدينة أو ملاحظة للمعاينة (اختياري)"
         />
         <div class="total-line">
-          <span>المجموع:</span>
-          <span id="cartTotal">0 DH</span>
+          <span>الثمن:</span>
+          <span id="cartTotal">بعد المعاينة في واتساب</span>
         </div>
         <button class="checkout-wa-btn" id="checkoutWhatsAppBtn" type="button">
           إرسال الطلب عبر واتساب
@@ -704,13 +712,13 @@
 
   <script>
     const WHATSAPP_NUMBER = "212771865652";
+    const PRICE_LABEL = "الثمن بعد المعاينة";
 
     const PRODUCTS = [
       {
         id: 1,
         name: "معطف فرو أبيض وأسود",
         category: "جاكيت ومعاطف",
-        price: 199,
         image: "fur-coat-bw.jpg",
         desc: "تصميم أنيق ودافئ مناسب للإطلالات اليومية.",
         sizes: ["S", "M", "L", "XL"],
@@ -720,7 +728,6 @@
         id: 2,
         name: "هودي كرويف أسود",
         category: "هوديز",
-        price: 149,
         image: "hoodie-cruyff-black.jpg",
         desc: "هودي مريح بقصة عصرية وخامة ناعمة.",
         sizes: ["S", "M", "L", "XL"],
@@ -730,7 +737,6 @@
         id: 3,
         name: "هودي كرويف كحلي",
         category: "هوديز",
-        price: 149,
         image: "hoodie-cruyff-navy.jpg",
         desc: "لون كحلي عملي يسهل تنسيقه مع مختلف الملابس.",
         sizes: ["S", "M", "L", "XL"],
@@ -740,7 +746,6 @@
         id: 4,
         name: "هودي كرويف نيون",
         category: "هوديز",
-        price: 149,
         image: "hoodie-cruyff-neon.jpg",
         desc: "إطلالة شبابية لافتة بلون نيون عصري.",
         sizes: ["S", "M", "L", "XL"],
@@ -750,7 +755,6 @@
         id: 5,
         name: "جاكيت ديفاس أسود",
         category: "جاكيت ومعاطف",
-        price: 179,
         image: "jacket-divas-black.jpg",
         desc: "جاكيت عملي بمظهر أنيق ومناسب لفصل البرودة.",
         sizes: ["S", "M", "L", "XL"],
@@ -759,8 +763,7 @@
       {
         id: 6,
         name: "قميص كارو بيج",
-        category: "أطقم وقمصان",
-        price: 119,
+        category: "أطقم وفساتين وقمصان",
         image: "shirt-plaid-beige.jpg",
         desc: "قميص بنقشة مربعات خفيفة ومريحة للارتداء اليومي.",
         sizes: ["S", "M", "L", "XL"],
@@ -769,8 +772,7 @@
       {
         id: 7,
         name: "طقم نايكي رياضي",
-        category: "أطقم وقمصان",
-        price: 189,
+        category: "أطقم وفساتين وقمصان",
         image: "sport-nike-set.jpg",
         desc: "طقم عملي مريح للحركة اليومية والنشاط الرياضي.",
         sizes: ["S", "M", "L", "XL"],
@@ -779,8 +781,7 @@
       {
         id: 8,
         name: "توب نايكي وردي",
-        category: "أطقم وقمصان",
-        price: 99,
+        category: "أطقم وفساتين وقمصان",
         image: "top-nike-pink.jpg",
         desc: "قطعة خفيفة ومريحة بلون وردي جذاب.",
         sizes: ["XS", "S", "M", "L"],
@@ -790,7 +791,6 @@
         id: 9,
         name: "فيست فرو بني",
         category: "فيست",
-        price: 139,
         image: "vest-fur-brown.jpg",
         desc: "فيست فرو دافئ يضيف لمسة مميزة فوق القمصان والكنزات.",
         sizes: ["S", "M", "L", "XL"],
@@ -800,11 +800,64 @@
         id: 10,
         name: "فيست بافر زيتوني",
         category: "فيست",
-        price: 139,
         image: "vest-olive-puffer.jpg",
         desc: "فيست مبطن خفيف وعصري بلون زيتوني أنيق.",
         sizes: ["S", "M", "L", "XL"],
         colors: ["زيتوني"]
+      },
+      {
+        id: 11,
+        name: "معطف فرو بنقشة الفهد",
+        category: "جاكيت ومعاطف",
+        image: "coat-leopard-fur.jpg",
+        desc: "معطف فرو أنيق بنقشة الفهد ومبطن من الداخل.",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["نقشة الفهد"]
+      },
+      {
+        id: 12,
+        name: "فستان مضلع رمادي",
+        category: "أطقم وفساتين وقمصان",
+        image: "dress-ribbed-grey.jpg",
+        desc: "فستان أو كنزة طويلة مضلعة بقصة مريحة وعصرية.",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["رمادي"]
+      },
+      {
+        id: 13,
+        name: "فيست شامواه بني بحزام وسحاب",
+        category: "فيست",
+        image: "vest-suede-brown.jpg",
+        desc: "فيست بني بحواف فرو وسحابات وحزام إبزيم عند الرقبة.",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["بني"]
+      },
+      {
+        id: 14,
+        name: "معطف جينز أزرق طويل",
+        category: "جاكيت ومعاطف",
+        image: "coat-denim-blue.jpg",
+        desc: "معطف جينز طويل بأزرار مزدوجة وإطلالة عملية.",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["أزرق جينز"]
+      },
+      {
+        id: 15,
+        name: "فيست بني بسحاب وجيوب",
+        category: "فيست",
+        image: "vest-zip-brown.jpg",
+        desc: "فيست بني بسحاب أمامي وجيوب عملية وحواف فرو.",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["بني"]
+      },
+      {
+        id: 16,
+        name: "فيست بافر عنابي بقبعة وفرو",
+        category: "فيست",
+        image: "vest-puffer-burgundy.jpg",
+        desc: "فيست بافر عنابي مبطن مزود بقبعة وحواف فرو أنيقة.",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["عنابي"]
       }
     ];
 
@@ -871,7 +924,7 @@
                 </select>
               </div>
               <div class="price-row">
-                <span class="price">${p.price} DH</span>
+                <span class="price-badge">${PRICE_LABEL}</span>
               </div>
               <div class="actions-row">
                 <button class="add-btn" type="button" onclick="addToCart(${p.id}, this)">إضافة للسلة</button>
@@ -906,7 +959,6 @@
         cart.push({
           id: product.id,
           name: product.name,
-          price: product.price,
           image: product.image,
           size: sizeVal,
           color: colorVal,
@@ -924,11 +976,11 @@
       const { sizeVal, colorVal } = getSelectedOptions(btnEl);
       const cityText = customerCity.value.trim();
 
-      let message = `مرحباً *ملابس الأندلس mini prix*، أود طلب المنتج التالي:\n`;
+      let message = `مرحباً *ملابس الأندلس mini prix*، أود الاستفسار وطلب المنتج التالي:\n`;
       message += `• المنتج: ${product.name}\n`;
       message += `• المقاس: ${sizeVal}\n`;
       message += `• اللون: ${colorVal}\n`;
-      message += `• الثمن: ${product.price} DH\n`;
+      message += `• الثمن: يُحدد بعد المعاينة والتواصل\n`;
       if (cityText) message += `• المدينة / ملاحظة: ${cityText}\n`;
 
       const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -951,10 +1003,9 @@
 
     function updateCartUI() {
       const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-      const totalPrice = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
 
       cartCount.textContent = totalItems;
-      cartTotal.textContent = `${totalPrice} DH`;
+      cartTotal.textContent = totalItems > 0 ? "بعد المعاينة في واتساب" : "—";
 
       if (cart.length === 0) {
         cartItemsContainer.innerHTML = `<p style="text-align:center;color:var(--muted);padding:24px 0;">السلة فارغة حالياً.</p>`;
@@ -969,7 +1020,7 @@
             <div class="cart-item-info">
               <div class="cart-item-title">${item.name}</div>
               <div class="cart-item-meta">المقاس: ${item.size} | اللون: ${item.color}</div>
-              <div class="cart-item-price">${item.price * item.qty} DH</div>
+              <div class="cart-item-price">${PRICE_LABEL}</div>
               <button class="remove-btn" type="button" onclick="removeItem(${idx})">حذف</button>
             </div>
             <div class="qty-controls">
@@ -990,13 +1041,12 @@
       }
 
       const cityText = customerCity.value.trim();
-      const totalPrice = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
 
-      let message = `مرحباً *ملابس الأندلس mini prix*، أود إتمام الطلب التالي:\n\n`;
+      let message = `مرحباً *ملابس الأندلس mini prix*، أود الاستفسار وطلب المنتجات التالية (الثمن بعد المعاينة):\n\n`;
       cart.forEach((item, i) => {
-        message += `${i + 1}. ${item.name} (${item.size} / ${item.color}) × ${item.qty} = ${item.price * item.qty} DH\n`;
+        message += `${i + 1}. ${item.name} (${item.size} / ${item.color}) × ${item.qty}\n`;
       });
-      message += `\n*المجموع الإجمالي: ${totalPrice} DH*\n`;
+      message += `\n*الثمن: يُحدد بعد المعاينة والمحادثة*\n`;
       if (cityText) message += `المدينة / ملاحظة: ${cityText}\n`;
 
       const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
